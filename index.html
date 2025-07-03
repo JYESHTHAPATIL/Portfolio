@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html::-webkit-scrollbar, body::-webkit-scrollbar {
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
             display: none;
         }
+
         body {
             font-family: 'Inter', sans-serif;
             color: #ffffff;
@@ -22,11 +26,13 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+
         /* Smooth Scroll Behavior */
         html {
-            
+
             scroll-behavior: smooth;
         }
+
         /* Header Styling */
         header {
             display: flex;
@@ -39,6 +45,7 @@
             position: relative;
             overflow: hidden;
         }
+
         header::before {
             content: '';
             position: absolute;
@@ -50,6 +57,7 @@
             filter: blur(4px) brightness(0.6);
             z-index: -1;
         }
+
         header h1 {
             font-size: 3em;
             font-weight: 700;
@@ -58,6 +66,7 @@
             margin-bottom: 10px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
+
         header p {
             font-size: 1.2em;
             font-weight: 500;
@@ -65,6 +74,7 @@
             margin-bottom: 30px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
+
         /* Moving Outline Button */
         .animated-button {
             background-color: black;
@@ -78,6 +88,40 @@
             overflow: hidden;
             text-decoration: none;
         }
+
+        .photo-glow {
+            display: inline-block;
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #58a6ff 0%, #3b82f6 40%, transparent 70%);
+            box-shadow: 0 0 40px rgba(88, 166, 255, 0.6);
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 60px rgba(88, 166, 255, 0.8);
+            }
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
         .animated-button::before {
             content: "";
             position: absolute;
@@ -89,23 +133,29 @@
             box-sizing: border-box;
             animation: moveOutline 2s linear infinite;
         }
+
         @keyframes moveOutline {
             0% {
                 clip-path: inset(0 0 98% 0);
             }
+
             25% {
                 clip-path: inset(0 98% 0 0);
             }
+
             50% {
                 clip-path: inset(98% 0 0 0);
             }
+
             75% {
                 clip-path: inset(0 0 0 98%);
             }
+
             100% {
                 clip-path: inset(0 0 98% 0);
             }
         }
+
         /* Section Styling */
         section {
             max-width: 800px;
@@ -117,10 +167,12 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
+
         section:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
         }
+
         h2 {
             font-size: 1.8em;
             font-weight: 600;
@@ -128,6 +180,7 @@
             margin-bottom: 20px;
             position: relative;
         }
+
         h2::after {
             content: '';
             display: block;
@@ -136,15 +189,18 @@
             background: #58a6ff;
             margin-top: 10px;
         }
+
         ul {
             list-style-type: none;
         }
+
         li {
             font-size: 1em;
             line-height: 1.8;
             margin-bottom: 10px;
             color: #a8b3c5;
         }
+
         /* Footer Styling */
         footer {
             padding: 40px 20px;
@@ -152,19 +208,23 @@
             background: rgba(0, 0, 0, 0.3);
             margin-top: 80px;
         }
+
         footer p {
             font-size: 1em;
             color: #a8b3c5;
         }
+
         footer a {
             color: #58a6ff;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
+
         footer a:hover {
             color: #3b82f6;
         }
+
         /* Moving Line Styling */
         .moving-line {
             border: none;
@@ -180,43 +240,58 @@
             content: "";
             position: absolute;
             top: 0;
-            left: -100%; /* Start off-screen */
-            width: 200%; /* Length of the moving line */
+            left: -100%;
+            /* Start off-screen */
+            width: 200%;
+            /* Length of the moving line */
             height: 100%;
             background: linear-gradient(90deg, transparent, #58a6ff, #3b82f6, transparent);
-            opacity: 0; /* Start as invisible */
+            opacity: 0;
+            /* Start as invisible */
             animation: moveLine 3s ease-in-out infinite;
         }
 
         @keyframes moveLine {
             0% {
                 left: -100%;
-                opacity: 0; /* Line starts invisible */
+                opacity: 0;
+                /* Line starts invisible */
             }
+
             30% {
-                opacity: 1; /* Line becomes fully visible */
+                opacity: 1;
+                /* Line becomes fully visible */
             }
+
             100% {
                 left: 100%;
-                opacity: 1; /* Line stays visible while moving */
+                opacity: 1;
+                /* Line stays visible while moving */
             }
         }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.2em;
             }
+
             header p {
                 font-size: 1em;
             }
+
             section {
                 padding: 30px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
+        <div class="photo-glow">
+            <img src="./myphoto.png" alt="Jyeshtha Patil" class="profile-photo">
+        </div>
         <h1>Jyeshtha Patil</h1>
         <p>AI Developer | Software Engineer | Web Developer | Fullstack Developer</p>
         <!-- Moving Outline Button -->
@@ -301,4 +376,5 @@
                 href="https://www.linkedin.com/in/patiljyeshtha">LinkedIn</a></p>
     </footer>
 </body>
+
 </html>
